@@ -1,0 +1,36 @@
+.slide{
+
+  color: rgb(44, 44, 229);
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
+
+.slide10{
+  
+  background-image: url( );
+
+  
+}
+
+
+.slide20{
+  background-image: url(https://i.ibb.co/6m2Cw8P/ai-generated-8555007-960-720.jpg);
+}
+
+
+.slide30{
+  background-image: url(https://i.ibb.co/B6qb4Rn/woman-4178302-1280.webp);
+}
+
+
+.slide40{
+  background-image: url(https://i.ibb.co/NVQHb4L/temple-6594770-1280.jpg);
+}
