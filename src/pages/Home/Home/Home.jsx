@@ -1,5 +1,5 @@
 import Adds from "../Adds/Adds";
-import AwardWinning from "../AvardWinning/AwardWinning";
+
 import Banner from "../Banner/Banner";
 import Slider from "../Slider/Slider";
 import TopFoods from "../TopFoods/TopFoods";
@@ -15,7 +15,7 @@ const Home = () => {
 
       <div> <TopFoods></TopFoods> </div>
       <div> <Gallary></Gallary>  </div>
-      <div> <AwardWinning></AwardWinning> </div>
+
 
 
 

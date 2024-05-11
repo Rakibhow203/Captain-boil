@@ -3,7 +3,10 @@
 const TopFoods = () => {
   return (
     <div>
-      <h1>This This Top Foods section</h1>
+
+      <h1>top food section</h1>
+
+
     </div>
   );
 };

@@ -12,7 +12,7 @@ import AuthProvider from './providers/AuthProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  <div className='max-w-7xl mx-auto'>
+  <div className='max-w-7xl mx-auto py-3'>
     <React.StrictMode>
       <AuthProvider>
         <RouterProvider router={Routes}></RouterProvider>
