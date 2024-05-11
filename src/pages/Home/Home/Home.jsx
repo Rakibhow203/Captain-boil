@@ -10,8 +10,9 @@ const Home = () => {
     <div className="mt-5">
 
       <div className="">     <Banner></Banner></div>
+      {/* <div className="mt-32 mb-32"> <Slider></Slider> </div> */}
       <div className="mt-5"> <Adds></Adds> </div>
-      {/* <div> <Slider></Slider> </div> */}
+
       <div> <TopFoods></TopFoods> </div>
       <div> <Gallary></Gallary>  </div>
       <div> <AwardWinning></AwardWinning> </div>

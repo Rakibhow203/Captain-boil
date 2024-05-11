@@ -13,7 +13,7 @@ const NavBar = () => {
   const { user, logOut } = useContext(AuthContext)
 
   return (
-    <div className='navbar bg-base-100 shadow-sm container px-4 mx-auto'>
+    <div className='navbar  shadow-2xl container px-4 mx-auto bg-orange-300'>
       <div className='flex-1'>
         <Link to='/' className='flex gap-2 items-center'>
           <img className='w-auto h-7' src="" alt='' />
@@ -26,7 +26,10 @@ const NavBar = () => {
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/jobs'>All Jobs</Link>
+            <Link to='/allFoods'>All Foods</Link>
+          </li>
+          <li>
+            <Link to='/Gallery'>Gallery</Link>
           </li>
 
           {!user && (
