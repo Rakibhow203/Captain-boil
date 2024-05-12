@@ -14,6 +14,8 @@ const Home = () => {
       <div className="mt-5"> <Adds></Adds> </div>
 
       <div> <TopFoods></TopFoods> </div>
+      <div className="border mt-5 mb-5"> <Slider></Slider> </div>
+
       <div> <Gallary></Gallary>  </div>
 
 
