@@ -12,8 +12,9 @@ const ShowTopFoods = ({ card }) => {
             <img src={image} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <h2 className="card-title">Name: {name} </h2>
+            <p> Category: {category} </p>
+            <p>Price: {price} </p>
 
             <div className="flex gap-10">
               <div className="card-actions">

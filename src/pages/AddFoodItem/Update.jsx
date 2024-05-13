@@ -1,21 +1,33 @@
-import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 import useAuth from "../../Components/Hook/useAuth";
+import Swal from "sweetalert2";
 
 
-const AddFoodItem = () => {
+const Update = () => {
   const { user } = useAuth();
+  const data = useLoaderData()
+  console.log(data);
+  const { name,
+    image,
+    category,
+    price,
+    origin,
+    description, _id } = data;
+  console.log(data);
   const handleAddUser = e => {
     e.preventDefault();
 
     const form = e.target;
     const name = form.name.value;
     const category = form.category.value;
-
     const description = form.description.value;
     const image = form.image.value;
     const price = form.price.value;
     const origin = form.origin.value;
+
     const email = user.email;
+
+
     const addAll = {
       name,
       image,
@@ -23,12 +35,13 @@ const AddFoodItem = () => {
       price,
       origin,
       description,
-      email
+      email,
+
 
     };
     console.log(addAll);
-    fetch('http://localhost:5000/tops', {
-      method: 'POST',
+    fetch(`http://localhost:5000/tops/${_id}`, {
+      method: 'PUT',
       headers: {
         'content-type': 'application/json',
       },
@@ -37,10 +50,10 @@ const AddFoodItem = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
-        if (data?.insertedId) {
+        if (data?.modifiedCount > 0) {
           Swal.fire({
             title: 'Success!',
-            text: '  Added  Food Successfully',
+            text: '  Updated Food Successfully',
             icon: 'success',
             confirmButtonText: 'Cool',
           });
@@ -76,6 +89,7 @@ const AddFoodItem = () => {
                   placeholder="Enter Food Name"
                   id="name"
                   name="name"
+                  defaultValue={name}
                 />
 
                 <label
@@ -90,7 +104,9 @@ const AddFoodItem = () => {
                   placeholder="Category"
                   id="Price"
                   name="category"
+                  defaultValue={category}
                 />
+
 
                 <label
                   className="block mt-4 mb-2 dark:text-white"
@@ -102,6 +118,7 @@ const AddFoodItem = () => {
                   className="w-full p-2 border rounded-md focus:outline-[#5549ffc3]"
                   type="text"
                   placeholder="Description"
+                  defaultValue={description}
                   id="Price"
                   name="description"
                 />
@@ -115,12 +132,13 @@ const AddFoodItem = () => {
                 <input
                   className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
                   type="text"
+                  defaultValue={image}
                   placeholder="Enter Image URL"
                   id="image"
                   name="image"
                 />
 
-                <label className="block mb-2 dark:text-white" htmlFor="Origin">
+                <label className="block mb-2 dark:text-white" htmlFor="image">
                   Origin
                 </label>
                 <input
@@ -129,6 +147,7 @@ const AddFoodItem = () => {
                   placeholder="origin"
                   id="origin"
                   name="origin"
+                  defaultValue={origin}
                 />
                 <label
                   className="block mt-4 mb-2 dark:text-white"
@@ -138,6 +157,7 @@ const AddFoodItem = () => {
                 </label>
                 <input
                   name="price"
+                  defaultValue={price}
                   id="brand"
                   className="w-full p-2 border rounded-md focus:outline-[#5849ffb8]"
                   type="text"
@@ -149,13 +169,14 @@ const AddFoodItem = () => {
             <input
               className="px-4 w-full py-2 mt-4 rounded hover:bg-[#6a49ffca]  bg-[#49dbff9f] duration-200 text-white cursor-pointer font-semibold"
               type="submit"
-              value="Add Food Item"
+              value="Update Food Item"
             />
           </form>
         </div>
       </div>
     </div>
+
   );
 };
 
-export default AddFoodItem;
+export default Update;
