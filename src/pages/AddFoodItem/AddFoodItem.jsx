@@ -1,200 +1,158 @@
-
-import { useState } from 'react';
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
+import useAuth from "../../Components/Hook/useAuth";
 
 
 const AddFoodItem = () => {
-  const [formData, setFormData] = useState({
-    foodName: '',
-    foodImage: '',
-    foodCategory: '',
-    quantity: '',
-    price: '',
-    addBy: {
-      name: '', // Add the currently logged-in user's name here
-      email: '', // Add the currently logged-in user's email here
-    },
-    foodOrigin: '',
-    description: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const { user } = useAuth();
+  const handleAddUser = e => {
     e.preventDefault();
-    // Assuming you have an API to add the food item
-    fetch('YOUR_API_ENDPOINT', {
+
+    const form = e.target;
+    const name = form.name.value;
+    const category = form.category.value;
+
+    const description = form.description.value;
+    const image = form.image.value;
+    const price = form.price.value;
+    const origin = form.origin.value;
+    const email = user.email;
+    const addAll = {
+      name,
+      image,
+      category,
+      price,
+      origin,
+      description,
+      email
+
+    };
+    console.log(addAll);
+    fetch('http://localhost:5000/tops', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'content-type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(addAll),
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to add food item');
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if (data?.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: '  Added  Food Successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool',
+          });
+          form.reset();
         }
-        return response.json();
-      })
-      .then((data) => {
-        // Show success alert
-        Swal.fire({
-          icon: 'success',
-          title: 'Success!',
-          text: 'Food item added successfully!',
-        });
-        // Reset form fields
-        setFormData({
-          foodName: '',
-          foodImage: '',
-          foodCategory: '',
-          quantity: '',
-          price: '',
-          addBy: {
-            name: '', // Reset the name field
-            email: '', // Reset the email field
-          },
-          foodOrigin: '',
-          description: '',
-        });
-      })
-      .catch((error) => {
-        // Show error alert
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Failed to add food item. Please try again later.',
-        });
-        console.error('Error adding food item:', error);
       });
   };
-
   return (
     <div>
-      <div className="container mx-auto mt-8">
-        <h1 className="text-2xl font-semibold mb-4">Add a Food Item</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label htmlFor="foodName" className="block text-sm font-medium text-gray-700">
-              Food Name
-            </label>
+      <div className="gadgetContainer pt-10 ">
+        <div className="shadow-lg p-5 border rounded-lg bg-[#e0d5dcb0]">
+          {/* Heading */}
+          <div className="mt-5 mb-8">
+            <p className="text-center text-3xl font-semibold">
+              <span className="mr-3 text-[#496affce]">
+                <i className="bx bxs-alarm-add"></i>
+              </span>
+              <span className="dark:text-white flex justify-center gap-2">
+                Add Food Item
+              </span>
+            </p>
+          </div>
+          {/* form */}
+          <form onSubmit={handleAddUser}>
+            <div className="flex gap-8 ">
+              <div className="flex-1">
+                <label className="block mb-2 dark:text-white" htmlFor="image">
+                  Food Name
+                </label>
+                <input
+                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
+                  type="text"
+                  placeholder="Enter Food Name"
+                  id="name"
+                  name="name"
+                />
+
+                <label
+                  className="block mt-4 mb-2 dark:text-white"
+                  htmlFor="price"
+                >
+                  Food Category
+                </label>
+                <input
+                  className="w-full p-2 border rounded-md focus:outline-[#494fffbd]"
+                  type="text"
+                  placeholder="Category"
+                  id="Price"
+                  name="category"
+                />
+
+                <label
+                  className="block mt-4 mb-2 dark:text-white"
+                  htmlFor="price"
+                >
+                  Short Description
+                </label>
+                <input
+                  className="w-full p-2 border rounded-md focus:outline-[#5549ffc3]"
+                  type="text"
+                  placeholder="Description"
+                  id="Price"
+                  name="description"
+                />
+              </div>
+
+              {/* Right side */}
+              <div className="flex-1">
+                <label className="block mb-2 dark:text-white" htmlFor="image">
+                  Image_url
+                </label>
+                <input
+                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
+                  type="text"
+                  placeholder="Enter Image URL"
+                  id="image"
+                  name="image"
+                />
+
+                <label className="block mb-2 dark:text-white" htmlFor="image">
+                  Origin
+                </label>
+                <input
+                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
+                  type="text"
+                  placeholder="origin"
+                  id="image"
+                  name="origin"
+                />
+                <label
+                  className="block mt-4 mb-2 dark:text-white"
+                  htmlFor="brand"
+                >
+                  Price
+                </label>
+                <input
+                  name="price"
+                  id="brand"
+                  className="w-full p-2 border rounded-md focus:outline-[#5849ffb8]"
+                  type="text"
+                  placeholder="Price"
+                ></input>
+              </div>
+            </div>
+
             <input
-              type="text"
-              id="foodName"
-              name="foodName"
-              value={formData.foodName}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-              required
+              className="px-4 w-full py-2 mt-4 rounded hover:bg-[#6a49ffca]  bg-[#49dbff9f] duration-200 text-white cursor-pointer font-semibold"
+              type="submit"
+              value="Add Food Item"
             />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="foodImage" className="block text-sm font-medium text-gray-700">
-              Food Image URL
-            </label>
-            <input
-              type="text"
-              id="foodImage"
-              name="foodImage"
-              value={formData.foodImage}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="foodCategory" className="block text-sm font-medium text-gray-700">
-              Food Category
-            </label>
-            <input
-              type="text"
-              id="foodCategory"
-              name="foodCategory"
-              value={formData.foodCategory}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">
-              Quantity
-            </label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              value={formData.quantity}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-              Price
-            </label>
-            <input
-              type="text"
-              id="price"
-              name="price"
-              value={formData.price}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="foodOrigin" className="block text-sm font-medium text-gray-700">
-              Food Origin (Country)
-            </label>
-            <input
-              type="text"
-              id="foodOrigin"
-              name="foodOrigin"
-              value={formData.foodOrigin}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="description" className="block text-sm font-medium  text-gray-700">
-              Description
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-              rows="4"
-              required
-            ></textarea>
-          </div>
-
-
-
-
-          {/* Repeat the above pattern for other form fields */}
-          <button
-            type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          >
-            Add Item
-          </button>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

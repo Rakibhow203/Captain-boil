@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import ShowTopFoods from "./ShowTopFoods";
+import { Link } from "react-router-dom";
 
 
 const TopFoods = () => {
@@ -22,6 +23,12 @@ const TopFoods = () => {
         ))}
       </div>
 
+
+      <div>
+        <div className=" text-center">
+          <Link to={'/allFoods/'}><button className="btn btn-wide btn-outline btn-secondary ">See All</button></Link>
+        </div>
+      </div>
 
     </div>
   );

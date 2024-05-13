@@ -79,16 +79,17 @@ const NavBar = () => {
               tabIndex={0}
               className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-orange-300 rounded-box w-52 text-black font-bold'
             >
-              <li>
-                <Link to='/myAddFoodItem' className='justify-between'>
-                  My added food items
-                </Link>
-              </li>
+
               <li>
                 <Link to='/addFoodItem'>Add a food item</Link>
               </li>
               <li>
-                <Link to='/myOrder'>My ordered food items</Link>
+                <Link to='/myFood' className='justify-between'>
+                  My added food items
+                </Link>
+              </li>
+              <li>
+                <Link to='/orderFood'>My ordered food items</Link>
               </li>
 
               <li className='mt-2'>

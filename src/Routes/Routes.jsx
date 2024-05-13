@@ -9,6 +9,8 @@ import AllFoods from "../pages/AllFoods/AllFoods";
 import AddFoodItem from "../pages/AddFoodItem/AddFoodItem";
 import SinglePageDetails from "../pages/SinglePageDetails/SinglePageDetails";
 import TopFoodDetails from "../pages/SinglePageDetails/TopFoodDetails";
+import MyAddFood from "../pages/AddFoodItem/MyAddFood";
+import MyOrderFood from "../pages/AddFoodItem/MyOrderFood";
 
 
 
@@ -65,8 +67,17 @@ const Routes = createBrowserRouter([
         element: <TopFoodDetails></TopFoodDetails>,
         loader: () => fetch('http://localhost:5000/tops')
 
-      }
+      },
 
+      {
+        path: '/myFood',
+        element: <MyAddFood></MyAddFood>
+      },
+      {
+        path: '/orderFood',
+        element: <MyOrderFood></MyOrderFood>
+
+      }
 
 
     ]

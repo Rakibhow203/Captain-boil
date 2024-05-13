@@ -19,9 +19,7 @@ const ShowTopFoods = ({ card }) => {
               <div className="card-actions">
                 <Link to={`/Top/${_id}`}><button className="btn btn-primary">Get Details</button></Link>
               </div>
-              <div className="card-actions">
-                <Link to={`/allFoods/`}><button className="btn btn-primary">See All</button></Link>
-              </div>
+
             </div>
 
           </div>

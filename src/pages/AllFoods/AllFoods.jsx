@@ -16,7 +16,7 @@ const AllFoods = () => {
         <AllFoodBanner></AllFoodBanner>
       </div>
       <div>
-        <h1 className="font-bold text-3xl text-center">All Foods</h1>
+        <h1 className="font-bold text-3xl text-center text-black mb-4 mt-10">All Foods</h1>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 mb-4">
         {cards.map(card => (
