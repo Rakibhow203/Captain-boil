@@ -12,9 +12,9 @@ const ShowTopFoods = ({ card }) => {
             <img src={image} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title text-black">Name: {name} </h2>
-            <p> Category: {category} </p>
-            <p>Price: {price} </p>
+            <h2 className="card-title text-black font-extrabold"><span className="font-bold">Name:</span> {name} </h2>
+            <p className="text-black font-bold"> Category: {category} </p>
+            <p className="text-black font-bold">Price: {price} </p>
 
             <div className="flex gap-10">
               <div className="card-actions">

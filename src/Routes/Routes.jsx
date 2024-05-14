@@ -12,6 +12,7 @@ import TopFoodDetails from "../pages/SinglePageDetails/TopFoodDetails";
 import MyAddFood from "../pages/AddFoodItem/MyAddFood";
 import MyOrderFood from "../pages/AddFoodItem/MyOrderFood";
 import Update from "../pages/AddFoodItem/Update";
+import Purchase from "../pages/Purchase/Purchase";
 
 
 
@@ -84,7 +85,14 @@ const Routes = createBrowserRouter([
         element: <Update></Update>,
         loader: ({ params }) => fetch(`http://localhost:5000/tops/${params.id}`)
 
+      },
+      {
+        path: '/purchase',
+        element: <Purchase></Purchase>
+
+
       }
+
 
 
 
