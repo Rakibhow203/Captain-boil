@@ -131,7 +131,9 @@ const NavBar = () => {
               <li>
                 <Link to='/orderFood'>My ordered food items</Link>
               </li>
-
+              <li>
+                <Link to="/request">Purchase Request</Link>
+              </li>
               <li className='mt-2'>
                 <button
                   onClick={handleLogOut}

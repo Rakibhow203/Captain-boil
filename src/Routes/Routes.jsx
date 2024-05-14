@@ -14,6 +14,7 @@ import MyOrderFood from "../pages/AddFoodItem/MyOrderFood";
 import Update from "../pages/AddFoodItem/Update";
 import Purchase from "../pages/Purchase/Purchase";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import PurRequest from "../pages/Purchase/PurRequest";
 
 
 
@@ -34,7 +35,14 @@ const Routes = createBrowserRouter([
         path: 'login',
         element: <LogIn></LogIn>
       },
-
+      {
+        path: '/request',
+        element: (
+          <PrivateRoute>
+            <PurRequest></PurRequest>
+          </PrivateRoute>
+        ),
+      },
       {
         path: 'signUp',
         element: <SingUp></SingUp>
