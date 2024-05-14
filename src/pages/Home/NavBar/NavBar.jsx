@@ -29,32 +29,32 @@ const NavBar = () => {
   };
 
   return (
-    <div className='navbar  shadow-2xl container px-4 mx-auto bg-orange-300 rounded-xl'>
+    <div className='navbar  shadow-2xl container px-4 mx-auto bg-orange-400 rounded-xl'>
       <div className='flex-1'>
         <Link to='/' className='flex gap-2 items-center'>
-          <img className='w-auto h-14 rounded' src="https://i.ibb.co/VwxzdmZ/The-Captain-s-Boil-removebg-preview.png" alt='' />
-          <span className='font-bold hover:bg-orange-100 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-30 font-sans text-xl'>The Captain's Boil</span>
+          <img className='w-auto h-14 rounded-full bg-white' src="https://i.ibb.co/VwxzdmZ/The-Captain-s-Boil-removebg-preview.png" alt='' />
+          <span className='font-bold hover:bg-orange-100 rounded-lg active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-30 font-sans text-xl text-black'>The Captain's Boil</span>
         </Link>
       </div>
       <div className='flex-none'>
         <ul className='menu menu-horizontal px-1 font-serif font-semibold'>
 
 
-          <li>
+          <li className='text-black hover:bg-orange-100 rounded-lg'>
             {/* Use NavLink for Home with activeClassName */}
             <NavLink exact to='/' activeClassName='active'>Home</NavLink>
           </li>
 
-          <li>
+          <li className='text-black hover:bg-orange-100 rounded-lg'>
             <NavLink to='/allFoods' activeClassName='active'>All Foods</NavLink>
           </li>
-          <li>
+          <li className='text-black hover:bg-orange-100 rounded-lg'>
             <NavLink to='/Gallery' activeClassName='active'>Gallery</NavLink>
           </li>
 
 
           {!user && (
-            <li>
+            <li className='text-black hover:bg-orange-100 rounded-lg'>
               <NavLink to='/login' activeClassName='active'>Login</NavLink>
             </li>
           )}

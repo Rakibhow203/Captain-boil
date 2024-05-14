@@ -12,13 +12,13 @@ const ShowTopFoods = ({ card }) => {
             <img src={image} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Name: {name} </h2>
+            <h2 className="card-title text-black">Name: {name} </h2>
             <p> Category: {category} </p>
             <p>Price: {price} </p>
 
             <div className="flex gap-10">
               <div className="card-actions">
-                <Link to={`/Top/${_id}`}><button className="btn btn-primary">Get Details</button></Link>
+                <Link to={`/Top/${_id}`}><button className="btn btn-primary bg-gradient-to-r from-green-400 to-orange-500 hover:from-pink-500 hover:to-yellow-500">Get Details</button></Link>
               </div>
 
             </div>
