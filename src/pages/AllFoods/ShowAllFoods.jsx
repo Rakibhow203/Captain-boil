@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ShowAllFoods = ({ card }) => {
   const {
     category, image, name, price, _id, } = card
-  console.log(card);
+  // console.log(card);
   return (
     <div>
 

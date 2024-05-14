@@ -6,7 +6,7 @@ const TopFoodDetails = () => {
   const cards = useLoaderData()
   const { id } = useParams()
   const card = cards.find(card => card._id === id)
-  // console.log(card);
+  console.log(card);
   const {
     category, image, name, origin, price, made_by, description, _id } = card
   return (
@@ -31,9 +31,9 @@ const TopFoodDetails = () => {
             <div className="text-center">
 
 
-              <Link to="/purchase">
+              <Link to={`/purchase/${_id}`}>
                 <button className="mt-10 btn btn-outline mr-5 outline-red-600 bg-orange-600 text-xl text-white w-40">
-                  Purchse
+                  Purchase
                 </button>
               </Link>
             </div>
