@@ -61,7 +61,7 @@ const NavBar = () => {
             <NavLink to='/allFoods' activeClassName='active'>All Foods</NavLink>
           </li>
           <li className='text-black hover:bg-orange-100 rounded-lg'>
-            <NavLink to='/Gallery' activeClassName='active'>Gallery</NavLink>
+            <NavLink to='/gallery' activeClassName='active'>Gallery</NavLink>
           </li>
           <li className="h-full w-14 mr-2">
             <label className="swap swap-rotate">

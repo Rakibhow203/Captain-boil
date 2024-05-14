@@ -51,8 +51,9 @@ const Routes = createBrowserRouter([
 
 
       {
-        path: 'Gallery',
-        element: <Gallery></Gallery>
+        path: '/gallery',
+        element: <Gallery></Gallery>,
+        loader: () => fetch('http://localhost:5000/foods'),
       },
       {
 
