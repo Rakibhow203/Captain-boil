@@ -1,11 +1,19 @@
-
 import { FaGoogle } from "react-icons/fa";
 import { useForm } from 'react-hook-form';
 import { FaGithub } from "react-icons/fa";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Components/Hook/useAuth";
 import Swal from 'sweetalert2'
+
 const LogIn = () => {
+
+
+
+
+
+
+
+
 
   const { signIn, signInWithGoogle, githubLogin } = useAuth();
   const {
@@ -122,7 +130,7 @@ const LogIn = () => {
                 </button>
               </div>
               <p>
-                New to Site?
+                Don't have an account?
                 <NavLink to="/signUp" className="text-blue-600 ml-2">
                   Create an account
                 </NavLink>

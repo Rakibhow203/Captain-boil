@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ShowAllFoods = ({ card }) => {
   const {
-    category, image, name, price, _id } = card
+    category, image, name, price, _id, } = card
   console.log(card);
   return (
     <div>
@@ -18,6 +18,7 @@ const ShowAllFoods = ({ card }) => {
           <h2 className="card-title text-black font-sans font-bold"> Food Name: {name} </h2>
           <p className="text-black font-serif">Food Category: {category} </p>
           <p className="text-black font-serif">Price: {price} </p>
+
           <div className="card-actions">
             <Link to={`/singleDetails/${_id}`}><button className="btn btn-primary">Details Button</button></Link>
           </div>

@@ -3,7 +3,7 @@
 const Gallery = () => {
   return (
     <div>
-      <h1>this Gallary</h1>
+      <h1>This Gallery</h1>
     </div>
   );
 };

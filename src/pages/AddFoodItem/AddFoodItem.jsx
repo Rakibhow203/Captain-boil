@@ -4,13 +4,13 @@ import useAuth from "../../Components/Hook/useAuth";
 
 const AddFoodItem = () => {
   const { user } = useAuth();
+  const userName = user ? user.name : "";
   const handleAddUser = e => {
     e.preventDefault();
 
     const form = e.target;
     const name = form.name.value;
     const category = form.category.value;
-
     const description = form.description.value;
     const image = form.image.value;
     const price = form.price.value;
@@ -23,8 +23,8 @@ const AddFoodItem = () => {
       price,
       origin,
       description,
-      email
-
+      email,
+      addedBy: userName
     };
     console.log(addAll);
     fetch('http://localhost:5000/tops', {
