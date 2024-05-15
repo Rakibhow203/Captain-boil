@@ -27,7 +27,7 @@ const AddFoodItem = () => {
       addedBy: userName
     };
     console.log(addAll);
-    fetch('http://localhost:5000/tops', {
+    fetch('https://the-captain-boil-server.vercel.app/tops', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

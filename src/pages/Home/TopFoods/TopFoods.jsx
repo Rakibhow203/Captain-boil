@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const TopFoods = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/tops')
+    fetch('https://the-captain-boil-server.vercel.app/tops')
       .then(res => res.json())
       .then(data => setCards(data));
   }, []);

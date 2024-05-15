@@ -40,7 +40,7 @@ const Update = () => {
 
     };
     console.log(addAll);
-    fetch(`http://localhost:5000/tops/${_id}`, {
+    fetch(`https://the-captain-boil-server.vercel.app/tops/${_id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

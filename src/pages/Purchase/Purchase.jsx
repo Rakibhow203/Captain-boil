@@ -39,7 +39,7 @@ const Purchase = () => {
       email,
     };
     console.log(addAll);
-    fetch('http://localhost:5000/order', {
+    fetch('https://the-captain-boil-server.vercel.app/order', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

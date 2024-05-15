@@ -9,7 +9,7 @@ const MyOrderFood = () => {
 
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/myorder/${user?.email}`)
+    fetch(`https://the-captain-boil-server.vercel.app/myorder/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setItems(data);

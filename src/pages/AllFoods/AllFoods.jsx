@@ -6,7 +6,7 @@ import AllFoodBanner from "../AllFoodBanner/AllFoodBanner";
 const AllFoods = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/foods')
+    fetch('https://the-captain-boil-server.vercel.app/foods')
       .then(res => res.json())
       .then(data => setCards(data));
   }, []);
