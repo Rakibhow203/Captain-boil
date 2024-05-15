@@ -1,16 +1,25 @@
 
-
-
-
 import { AuthContext } from '../../../providers/AuthProvider';
 import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
 import Swal from 'sweetalert2';
 
-
 const NavBar = () => {
-  const { user, logOut } = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light'); // Initialize with stored value or 'light'
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    document.querySelector('html').setAttribute('data-theme', theme);
+  }, [theme]); // Add theme to the dependency array
+
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      setTheme('sunset');
+    } else {
+      setTheme('light');
+    }
+  };
 
   const handleLogOut = () => {
     Swal.fire({
@@ -27,19 +36,7 @@ const NavBar = () => {
       }
     });
   };
-  const [theme, setTheme] = useState('light');
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-    const localTheme = localStorage.getItem('theme');
-    document.querySelector('html').setAttribute('data-theme', localTheme);
-  }, [theme]);
-  const handleChange = e => {
-    if (e.target.checked) {
-      setTheme('sunset');
-    } else {
-      setTheme('light');
-    }
-  };
+
   return (
     <div className='navbar  shadow-2xl container px-4 mx-auto bg-orange-400 rounded-xl'>
       <div className='flex-1'>
