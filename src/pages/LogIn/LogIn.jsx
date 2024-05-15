@@ -141,12 +141,21 @@ const LogIn = () => {
               <p className="text-center fw-bold mx-3 mb-0">OR</p>
             </div>
             <button onClick={handleGoogleLogin} className="mb-4 text-center justify-center w-full bg-[#dd4b39] hover:bg-blue-600 text-white font-bold py- px-4  rounded h-10 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-              <div><FaGoogle /></div>
-              Continue with Google
+              <div className="lg:flex items-center text-center gap-3 m-auto lg:ml-12 lg:px-4 ">
+                <i>
+                  <FaGoogle />
+                </i>
+                <p> Continue with Google</p>
+              </div>
             </button>
             <button onClick={handleGithubLogin} className="mb-4 w-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 hover:bg-blue-500 text-white font-bold py- px-4 rounded ">
-              <span>< FaGithub /> </span>
-              Continue with Github
+
+              <div className="lg:flex items-center text-center gap-3 m-auto lg:ml-12 lg:px-4 p-2">
+                <i>
+                  <FaGithub />
+                </i>
+                <p> Continue with Github</p>
+              </div>
             </button>
 
 

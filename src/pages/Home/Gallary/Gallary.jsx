@@ -1,75 +1,130 @@
 
-import * as React from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 
-export default function StandardImageList() {
+const Gallary = () => {
   return (
+    <div>
+      <h1 className="text-center  mt-4 mb-2 text-2xl font-bold text-black">Guest Review</h1>
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 border gap-4 ">
+        <div className="flex flex-col max-w-xl p-8 shadow-lg rounded-xl lg:p-12 dark:bg-gray-50 dark:text-gray-800">
+          <div className="flex flex-col items-center w-full">
+            <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
+            <div className="flex flex-col items-center py-6 space-y-3">
+              <span className="text-center">How was your experience?</span>
+              <div className="flex space-x-3">
+                <button type="button" title="Rate 1 stars" aria-label="Rate 1 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 2 stars" aria-label="Rate 2 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 3 stars" aria-label="Rate 3 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 4 stars" aria-label="Rate 4 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-700">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 5 stars" aria-label="Rate 5 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-gray-400">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div className="flex flex-col w-full">
+              <textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-800 dark:bg-gray-50"></textarea>
+              <button type="button" className="py-4 my-8 font-semibold rounded-md dark:text-gray-50 dark:bg-violet-600">Leave feedback</button>
+            </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <a rel="noopener noreferrer" href="#" className="text-sm dark:text-gray-600">Maybe later</a>
+          </div>
+        </div>
 
-    <ImageList sx={{ width: 1280, height: 450, gap: 4 }} cols={3} rowHeight={260} style={{ borderRadius: '16px' }}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            alt={item.title}
-            loading="lazy"
-            style={{ borderRadius: '16px', boxShadow: '25px 4px 6px rgba(0, 0, 0, 0.1)' }}
-
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+        <div><div className="flex flex-col max-w-xl p-8 mt-20 shadow-lg rounded-xl lg:p-12 dark:bg-gray-50 dark:text-gray-800">
+          <div className="flex flex-col w-full">
+            <h2 className="text-3xl font-semibold text-center">Customer reviews</h2>
+            <div className="flex flex-wrap items-center mt-2 mb-1 space-x-2">
+              <div className="flex">
+                <button type="button" title="Rate 1 stars" aria-label="Rate 1 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6 dark:text-yellow-700">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 2 stars" aria-label="Rate 2 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6 dark:text-yellow-700">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 3 stars" aria-label="Rate 3 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6 dark:text-yellow-700">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 4 stars" aria-label="Rate 4 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6 dark:text-gray-400">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+                <button type="button" title="Rate 5 stars" aria-label="Rate 5 stars">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-6 h-6 dark:text-gray-400">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                  </svg>
+                </button>
+              </div>
+              <span className="dark:text-gray-600">3 out of 5</span>
+            </div>
+            <p className="text-sm dark:text-gray-600">861 global ratings</p>
+            <div className="flex flex-col mt-4">
+              <div className="flex items-center space-x-1">
+                <span className="flex-shrink-0 w-12 text-sm">5 star</span>
+                <div className="flex-1 h-4 overflow-hidden rounded-sm dark:bg-gray-300">
+                  <div className="dark:bg-orange-500 h-4 w-5/6"></div>
+                </div>
+                <span className="flex-shrink-0 w-12 text-sm text-right">83%</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <span className="flex-shrink-0 w-12 text-sm">4 star</span>
+                <div className="flex-1 h-4 overflow-hidden rounded-sm dark:bg-gray-300">
+                  <div className="dark:bg-orange-500 h-4 w-4/6"></div>
+                </div>
+                <span className="flex-shrink-0 w-12 text-sm text-right">67%</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <span className="flex-shrink-0 w-12 text-sm">3 star</span>
+                <div className="flex-1 h-4 overflow-hidden rounded-sm dark:bg-gray-300">
+                  <div className="dark:bg-orange-500 h-4 w-3/6"></div>
+                </div>
+                <span className="flex-shrink-0 w-12 text-sm text-right">50%</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <span className="flex-shrink-0 w-12 text-sm">2 star</span>
+                <div className="flex-1 h-4 overflow-hidden rounded-sm dark:bg-gray-300">
+                  <div className="dark:bg-orange-500 h-4 w-2/6"></div>
+                </div>
+                <span className="flex-shrink-0 w-12 text-sm text-right">33%</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <span className="flex-shrink-0 w-12 text-sm">1 star</span>
+                <div className="flex-1 h-4 overflow-hidden rounded-sm dark:bg-gray-300">
+                  <div className="dark:bg-orange-500 h-4 w-1/6"></div>
+                </div>
+                <span className="flex-shrink-0 w-12 text-sm text-right">17%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
-const itemData = [
-  {
-    img: 'https://i.ibb.co/3CvKfGk/images-11.jpg',
-    title: 'Breakfast',
-  },
-  {
-    img: 'https://i.ibb.co/zFdQyhn/images-10.jpg',
-    title: 'Burger',
-  },
-  {
-    img: 'https://i.ibb.co/GktcP1n/images-9.jpg',
-    title: 'Camera',
-  },
-  {
-    img: 'https://i.ibb.co/99NPYcZ/images-8.jpg',
-    title: 'Coffee',
-  },
-  {
-    img: 'https://i.ibb.co/8gJ5SGL/images-7.jpg',
-    title: 'Hats',
-  },
-  {
-    img: 'https://i.ibb.co/6DBpMGP/images-6.jpg',
-    title: 'Honey',
-  },
-  {
-    img: 'https://i.ibb.co/QMnS1HT/images-5.jpg',
-    title: 'Basketball',
-  },
-  {
-    img: 'https://i.ibb.co/HD39VD6/images-4.jpg',
-    title: 'Fern',
-  },
-  {
-    img: 'https://i.ibb.co/xsBpwhr/images-3.jpg',
-    title: 'Mushrooms',
-  },
-  {
-    img: 'https://i.ibb.co/GsDTxWk/images-2.jpg',
-    title: 'Tomato basil',
-  },
-  {
-    img: 'https://i.ibb.co/gdDnMpZ/422716586-369690832582242-1528670149571588063-n.jpg',
-    title: 'Sea star',
-  },
-  {
-    img: 'https://i.ibb.co/5TYKhcF/images-1.jpg',
-    title: 'Bike',
-  },
-];
+export default Gallary;
