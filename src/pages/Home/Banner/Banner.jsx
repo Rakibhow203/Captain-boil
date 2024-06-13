@@ -1,17 +1,29 @@
-import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="rounded-xl">
-      <section className="relative bg-cover bg-center items-center text-center rounded-2xl" style={{ backgroundImage: `url('https://i.ibb.co/cLVs7qr/pexels-lucasandrade-12477952.jpg')` }}>
-        <div className="absolute inset-0 bg-black opacity-35"></div>
-        <div className="container pt-[550px]  mx-auto flex flex-col items-center pr-4 justify-center relative">
-          <h1 className="text-4xl font-bold text-white mb-4">A FEAST WORTH GIVING!</h1>
-          <p className="text-lg text-center text-white mb-5">SHARE OUR TREASURES WITH YEE FRIENDS AND FAMILY FOR EVERY OCCASION!</p>
-          <p className="text-sm text-center text-white text-bold"> "The Captain's Boil Gift Cards can be purchased in our stores." </p>
+    <div className="rounded-2xl overflow-hidden shadow-lg">
+      <section
+        className="relative bg-cover bg-center text-center"
+        style={{ backgroundImage: `url('https://i.ibb.co/cLVs7qr/pexels-lucasandrade-12477952.jpg')` }}
+      >
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black to-black opacity-70"></div>
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto flex flex-col items-center justify-center pt-[550px] pb-20 px-4">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4 drop-shadow-lg">
+            A FEAST WORTH GIVING!
+          </h1>
+          <p className="text-lg md:text-xl text-white mb-5 max-w-2xl drop-shadow-md">
+            SHARE OUR TREASURES WITH YOUR FRIENDS AND FAMILY FOR EVERY OCCASION!
+          </p>
+          <p className="text-sm md:text-md text-white font-semibold mb-8 max-w-xl drop-shadow-md">
+            "The Captain's Boil Gift Cards can be purchased in our stores."
+          </p>
           <Link to="/allFoods">
-            <button className="bg-gradient-to-r from-green-600 to-orange-600 hover:from-pink-500 hover:to-yellow-500 text-white mb-10 font-bold py-2 px-4 rounded-lg transition duration-300 mt-2">
+            <button className="bg-gradient-to-r from-green-500 to-orange-500 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300">
               View All Foods
             </button>
           </Link>
