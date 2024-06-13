@@ -15,4 +15,3 @@ const useAuth = () => {
 export default useAuth;
 
 
-style={{ backgroundImage: `url(${registerbg})`, backgroundSize: 'cover' }}
