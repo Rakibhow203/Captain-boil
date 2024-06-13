@@ -1,17 +1,17 @@
 import Swal from 'sweetalert2';
-import UseHooks from '../Hook/UseHooks';
 import { useLocation } from 'react-router-dom';
+import useAuth from '../../Components/Hook/useAuth';
+import AddFoodItemCover from './AddFoodItemCover';
 
-const AddFood = () => {
-  const { user } = UseHooks();
+const AddFoodItem = () => {
+  const { user } = useAuth();
   const navigate = useLocation();
-  const handleAddUser = e => {
+  const handleAddUser = (e) => {
     e.preventDefault();
 
     const form = e.target;
     const food_name = form.food_name.value;
     const category = form.category.value;
-
     const short_description = form.short_description.value;
     const food_image = form.food_image.value;
     const food_qun = form.food_qun.value;
@@ -20,12 +20,10 @@ const AddFood = () => {
     const email = user.email;
     const addAll = {
       food_name,
-
       food_qun,
       category,
       price,
       short_description,
-
       email,
       food_image,
     };
@@ -37,13 +35,13 @@ const AddFood = () => {
       },
       body: JSON.stringify(addAll),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
         if (data?.insertedId) {
           Swal.fire({
             title: 'Success!',
-            text: '  Added  Food Successfully',
+            text: 'Added Food Successfully',
             icon: 'success',
             confirmButtonText: 'Cool',
           });
@@ -52,114 +50,123 @@ const AddFood = () => {
         }
       });
   };
+
   return (
-    <div>
-      <div className="gadgetContainer pt-10 ">
-        <div className="shadow-lg p-5 border rounded-lg bg-[#e0d5dcb0]">
+
+    <>
+
+
+      <div className='mb-6 mt-6'>
+
+        <AddFoodItemCover></AddFoodItemCover>
+      </div>
+
+      <div className="min-h-screen bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200 flex justify-center items-center p-6 rounded-lg">
+        <div className="w-full max-w-3xl bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 border-t-4 border-indigo-500">
           {/* Heading */}
-          <div className="mt-5 mb-8">
-            <p className="text-center text-3xl font-semibold">
-              <span className="mr-3 text-[#496affce]">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-semibold text-gray-900 dark:text-gray-100">
+              <span className="text-indigo-600 mr-3">
                 <i className="bx bxs-alarm-add"></i>
               </span>
-              <span className="dark:text-white flex justify-center gap-2">
-                Add Food Item
-              </span>
-            </p>
+              Add Food Item
+            </h1>
           </div>
-          {/* form */}
+          {/* Form */}
           <form onSubmit={handleAddUser}>
-            <div className="flex gap-8 ">
+            <div className="flex flex-col lg:flex-row gap-6">
               <div className="flex-1">
-                <label className="block mb-2 dark:text-white" htmlFor="image">
+                <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="food_name">
                   Food Name
                 </label>
                 <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
+                  className="w-full p-3 border border-indigo-300 rounded-md focus:outline-none focus:border-indigo-500"
                   type="text"
                   placeholder="Enter Food Name"
-                  id="name"
+                  id="food_name"
                   name="food_name"
+                  required
                 />
 
-                <label
-                  className="block mt-4 mb-2 dark:text-white"
-                  htmlFor="price"
-                >
+                <label className="block mt-4 text-gray-700 dark:text-gray-200 mb-2" htmlFor="category">
                   Food Category
                 </label>
                 <input
-                  className="w-full p-2 border rounded-md focus:outline-[#494fffbd]"
+                  className="w-full p-3 border border-indigo-300 rounded-md focus:outline-none focus:border-indigo-500"
                   type="text"
                   placeholder="Category"
-                  id="Price"
+                  id="category"
                   name="category"
+                  required
                 />
 
-                <label
-                  className="block mt-4 mb-2 dark:text-white"
-                  htmlFor="price"
-                >
+                <label className="block mt-4 text-gray-700 dark:text-gray-200 mb-2" htmlFor="short_description">
                   Short Description
                 </label>
-                <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5549ffc3]"
-                  type="text"
-                  placeholder="Description"
-                  id="Price"
+                <textarea
+                  className="w-full p-3 border border-indigo-300 rounded-md focus:outline-none focus:border-indigo-500 resize-none"
+                  placeholder="Short Description"
+                  id="short_description"
                   name="short_description"
-                />
+                  rows="4"
+                  required
+                ></textarea>
               </div>
 
-              {/* Right side */}
               <div className="flex-1">
-                <label className="block mb-2 dark:text-white" htmlFor="image">
-                  Image_url
+                <label className="block text-gray-700 dark:text-gray-200 mb-2" htmlFor="food_image">
+                  Image URL
                 </label>
                 <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
+                  className="w-full p-3 border border-indigo-300 rounded-md focus:outline-none focus:border-indigo-500"
                   type="text"
                   placeholder="Enter Image URL"
-                  id="image"
+                  id="food_image"
                   name="food_image"
+                  required
                 />
 
-                <label className="block mb-2 dark:text-white" htmlFor="image">
+                <label className="block mt-4 text-gray-700 dark:text-gray-200 mb-2" htmlFor="food_qun">
                   Quantity
                 </label>
                 <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
-                  type="text"
+                  className="w-full p-3 border border-indigo-300 rounded-md focus:outline-none focus:border-indigo-500"
+                  type="number"
                   placeholder="Quantity"
-                  id="image"
+                  id="food_qun"
                   name="food_qun"
+                  required
                 />
-                <label
-                  className="block mt-4 mb-2 dark:text-white"
-                  htmlFor="brand"
-                >
+
+                <label className="block mt-4 text-gray-700 dark:text-gray-200 mb-2" htmlFor="price">
                   Price
                 </label>
                 <input
-                  name="price"
-                  id="brand"
-                  className="w-full p-2 border rounded-md focus:outline-[#5849ffb8]"
-                  type="text"
+                  className="w-full p-3 border border-indigo-300 rounded-md focus:outline-none focus:border-indigo-500"
+                  type="number"
                   placeholder="Price"
-                ></input>
+                  id="price"
+                  name="price"
+                  required
+                />
               </div>
             </div>
 
-            <input
-              className="px-4 w-full py-2 mt-4 rounded hover:bg-[#6a49ffca]  bg-[#49dbff9f] duration-200 text-white cursor-pointer font-semibold"
-              type="submit"
-              value="Add Food Item"
-            />
+            <div className="mt-8">
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-3 rounded-md hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Add Food Item
+              </button>
+            </div>
           </form>
         </div>
       </div>
-    </div>
+    </>
+
+
   );
 };
 
-export default AddFood;
+export default AddFoodItem;
