@@ -1,161 +1,140 @@
+import { useEffect, useRef, useState } from "react";
+import logInIMG from '../../assets/loginlogo2.png'
+import logInPageBg from '../../assets/loginpagebg.jpg'
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import useAuth from "../Hook/UseAuth";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import useAuth from "../../Components/Hook/useAuth";
+import { FaGoogle } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 
-const AddFoodItem = () => {
-  const { user } = useAuth();
-  const userName = user ? user.name : "";
-  const handleAddUser = e => {
-    e.preventDefault();
+const LogIn = () => {
+  const captchaRef = useRef(null);
+  const [disabled, setDisabled] = useState(true);
+  const { signInWithGoogle } = useAuth()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || '/';
 
-    const form = e.target;
-    const name = form.name.value;
-    const category = form.category.value;
-    const description = form.description.value;
-    const image = form.image.value;
-    const price = form.price.value;
-    const origin = form.origin.value;
-    const email = user.email;
-    const addAll = {
-      name,
-      image,
-      category,
-      price,
-      origin,
-      description,
-      email,
-      addedBy: userName
-    };
-    console.log(addAll);
-    fetch('https://the-captain-boil-server.vercel.app/tops', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify(addAll),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        if (data?.insertedId) {
-          Swal.fire({
-            title: 'Success!',
-            text: '  Added  Food Successfully',
-            icon: 'success',
-            confirmButtonText: 'Cool',
-          });
-          form.reset();
-        }
-      });
+
+  useEffect(() => {
+    loadCaptchaEnginge(6);
+  }, [])
+
+  const handleLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const result = { email, password };
+    console.log(result);
+
+  }
+  const handleGoogleLogin = () => {
+    signInWithGoogle().then(result => {
+      if (result.user) {
+        navigate('/')
+        Swal.fire({
+          title: 'Success!',
+          text: 'User Google login Successfully',
+          icon: 'success',
+          confirmButtonText: 'Cool',
+        });
+
+      }
+    });
   };
+
+
+  const handleValidateCaptcha = () => {
+    const user_captcha_value = captchaRef.current.value;
+    if (validateCaptcha(user_captcha_value)) {
+
+      setDisabled(false);
+
+    }
+    else {
+      setDisabled(true)
+    }
+  }
+
   return (
-    <div>
-      <div className="gadgetContainer pt-10 ">
-        <div className="shadow-lg p-5 border rounded-lg bg-[#e0d5dcb0]">
-          {/* Heading */}
-          <div className="mt-5 mb-8">
-            <p className="text-center text-3xl font-semibold">
-              <span className="mr-3 text-[#496affce]">
-                <i className="bx bxs-alarm-add"></i>
-              </span>
-              <span className="dark:text-white flex justify-center gap-2">
-                Add Food Item
-              </span>
+    <>
+      <Helmet>
+        <title> CampAid || LogIn</title>
+      </Helmet>
+
+      <div className="hero min-h-screen my-8 rounded-lg" style={{ backgroundImage: `url(${logInPageBg})`, backgroundSize: 'cover' }}>
+
+
+
+        <div className="hero-content flex-col rounded-2xl lg:flex-row-reverse  bg-gradient-to-r from-orange-600 from-10% via-yellow-500 via-30% to-red-500 to-90%">
+          <div className="text-center lg:text-left">
+
+            <img src={logInIMG} alt="" />
+            <p className='font-extrabold text-3xl text-white lg:hidden'>
+              <h1>Welcome to my website</h1>
+              <p> Please logIn</p>
+
             </p>
           </div>
-          {/* form */}
-          <form onSubmit={handleAddUser}>
-            <div className="flex gap-8 ">
-              <div className="flex-1">
-                <label className="block mb-2 dark:text-white" htmlFor="image">
-                  Food Name
-                </label>
-                <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
-                  type="text"
-                  placeholder="Enter Food Name"
-                  id="name"
-                  name="name"
-                />
+          <div className="card shrink-0 w-full lg:max-w-sm shadow-2xl bg-base-100">
 
-                <label
-                  className="block mt-4 mb-2 dark:text-white"
-                  htmlFor="price"
-                >
-                  Food Category
+            <form onSubmit={handleLogin} className="card-body bg-white rounded-xl">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
                 </label>
-                <input
-                  className="w-full p-2 border rounded-md focus:outline-[#494fffbd]"
-                  type="text"
-                  placeholder="Category"
-                  id="Price"
-                  name="category"
-                />
-
-                <label
-                  className="block mt-4 mb-2 dark:text-white"
-                  htmlFor="price"
-                >
-                  Short Description
-                </label>
-                <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5549ffc3]"
-                  type="text"
-                  placeholder="Description"
-                  id="Price"
-                  name="description"
-                />
+                <input type="email" name="email" placeholder="email" className="input input-bordered" />
               </div>
-
-              {/* Right side */}
-              <div className="flex-1">
-                <label className="block mb-2 dark:text-white" htmlFor="image">
-                  Image_url
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
                 </label>
-                <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
-                  type="text"
-                  placeholder="Enter Image URL"
-                  id="image"
-                  name="image"
-                />
-
-                <label className="block mb-2 dark:text-white" htmlFor="Origin">
-                  Origin
+                <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                 </label>
-                <input
-                  className="w-full p-2 border rounded-md focus:outline-[#5b49ffb8]"
-                  type="text"
-                  placeholder="origin"
-                  id="origin"
-                  name="origin"
-                />
-                <label
-                  className="block mt-4 mb-2 dark:text-white"
-                  htmlFor="brand"
-                >
-                  Price
-                </label>
-                <input
-                  name="price"
-                  id="brand"
-                  className="w-full p-2 border rounded-md focus:outline-[#5849ffb8]"
-                  type="text"
-                  placeholder="Price"
-                ></input>
               </div>
+              <div className="form-control">
+                <label className="label">
+                  <LoadCanvasTemplate />
+                </label>
+                <input type="text" ref={captchaRef} name="captcha" placeholder="type the Captcha above" className="input input-bordered" />
+                <button onClick={handleValidateCaptcha} className='btn btn-outline btn-xs mt-2'> VALIDATE</button>
+
+              </div>
+              <div className="form-control mt-6">
+
+                <input disabled={disabled} className="btn btn-primary text-xl text-white  bg-gradient-to-r from-orange to-blue-500 hover:from-pink-500 hover:to-yellow-500" type="submit" value="Login" />
+              </div>
+              <button onClick={handleGoogleLogin} className="mb-4 text-center justify-center w-full bg-[#dd4b39] hover:bg-blue-600 text-white font-bold py- px-4  rounded h-10 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+                <div className="lg:flex items-center text-center gap-3 m-auto lg:ml-12 lg:px-4 ">
+                  <i>
+                    <FaGoogle />
+                  </i>
+                  <p> Continue with Google</p>
+                </div>
+              </button>
+            </form>
+            <div className="text-center mb-4">
+              <p className='text-black font-serif'>Don't have an account? <a href="/register" className="text-yellow-400 hover:text-green-500 font-bold font-serif ">  <span className="">Register</span> </a></p>
             </div>
-
-            <input
-              className="px-4 w-full py-2 mt-4 rounded hover:bg-[#6a49ffca]  bg-[#49dbff9f] duration-200 text-white cursor-pointer font-semibold"
-              type="submit"
-              value="Add Food Item"
-            />
-          </form>
+          </div>
         </div>
+
       </div>
-    </div>
+    </>
   );
 };
 
-export default AddFoodItem;
+export default LogIn;
+
+
+
+
+rakibhos54@gmail.com
+
+
+

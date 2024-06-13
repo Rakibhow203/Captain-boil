@@ -6,15 +6,6 @@ import useAuth from "../../Components/Hook/useAuth";
 import Swal from 'sweetalert2'
 
 const LogIn = () => {
-
-
-
-
-
-
-
-
-
   const { signIn, signInWithGoogle, githubLogin } = useAuth();
   const {
     register,
