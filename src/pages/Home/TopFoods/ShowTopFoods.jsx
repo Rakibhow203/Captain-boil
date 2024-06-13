@@ -1,8 +1,8 @@
 
 import { Link } from "react-router-dom";
 
-const ShowTopFoods = ({ card }) => {
-  const { category, image, name, price, _id } = card;
+const ShowTopFoods = ({ food }) => {
+  const { category, image, name, price, _id } = food;
 
   return (
     <div className="flex justify-center items-center p-4">
