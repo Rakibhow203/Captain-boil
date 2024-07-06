@@ -19,6 +19,7 @@ import PurRequest from "../pages/Purchase/PurRequest";
 
 
 
+
 const Routes = createBrowserRouter([
 
   {
@@ -77,7 +78,7 @@ const Routes = createBrowserRouter([
 
         path: '/Top/:id',
         element: <PrivateRoute><TopFoodDetails></TopFoodDetails></PrivateRoute>,
-        loader: () => fetch('https://the-captain-boil-server.vercel.app/tops')
+        loader: () => fetch('https://the-captain-boil-server.vercel.app/foods')
 
       },
 
@@ -99,10 +100,11 @@ const Routes = createBrowserRouter([
       {
         path: '/purchase/:id',
         element: <Purchase></Purchase>,
-        loader: () => fetch('https://the-captain-boil-server.vercel.app/tops')
+        loader: () => fetch('https://the-captain-boil-server.vercel.app/foods')
 
 
-      }
+      },
+
 
 
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import useAuth from '../../Components/Hook/useAuth';
 import ViewPur from './ViewPur';
-// import ViewOrder from '../ViewOrder/ViewOrder';
+
 const PurRequest = () => {
   const [items, setItems] = useState([]);
   console.log(items);
@@ -20,11 +20,11 @@ const PurRequest = () => {
     <div>
       <section className="container px-4 mx-auto pt-12 mt-5 mb-5">
         <div className="flex items-center gap-x-3">
-          <h2 className="text-lg font-medium text-gray-800 ">
+          <h2 className="text-lg font-medium text-orange-400 ">
             Purchase Requests
           </h2>
 
-          <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
+          <span className="px-3 py-1 text-xs text-red-500 font-bold  bg-blue-100 rounded-full ">
             {items.length} Requests
           </span>
         </div>

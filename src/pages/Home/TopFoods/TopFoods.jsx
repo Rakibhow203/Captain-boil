@@ -8,7 +8,7 @@ const TopFoods = () => {
   useEffect(() => {
     const getTopFoods = async () => {
       try {
-        const response = await fetch('https://the-captain-boil-server.vercel.app/tops');
+        const response = await fetch('https://the-captain-boil-server.vercel.app/foods');
         const foods = await response.json();
         // Check if the food items have a `purchaseCount` property
         if (foods && Array.isArray(foods)) {

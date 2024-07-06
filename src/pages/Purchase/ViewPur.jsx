@@ -1,114 +1,209 @@
+// import axios from "axios";
+// import Swal from "sweetalert2";
+// import { useState } from "react";
+// import { FaPenToSquare } from "react-icons/fa6";
+// import { MdDeleteSweep } from "react-icons/md";
+// import { Link } from "react-router-dom";
 
-const ViewPur = ({card}) => {
-  const { price, name, time } = card;
+// const ViewPur = ({ card }) => {
+
+//   const [orders, setOrders] = useState([card]);
+
+//   const handleDeleteUser = (cardToDelete) => {
+//     Swal.fire({
+//       title: 'Are you sure?',
+//       text: "You won't be able to revert this!",
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonColor: '#3085d6',
+//       cancelButtonColor: '#d33',
+//       confirmButtonText: 'Yes, delete it!'
+//     }).then(result => {
+//       if (result.isConfirmed) {
+//         axios.delete(`https://the-captain-boil-server.vercel.app/myorder/${cardToDelete._id}`)
+//           .then(res => {
+//             if (res.data.deletedCount) {
+//               Swal.fire({
+//                 title: 'Deleted!',
+//                 text: 'Your user has been deleted.',
+//                 icon: 'success'
+//               }).then(() => {
+//                 // Update UI after successful deletion
+//                 const updatedOrders = orders.filter(order => order._id !== cardToDelete._id);
+//                 setOrders(updatedOrders);
+//               });
+//             } else {
+//               Swal.fire({
+//                 title: 'Error!',
+//                 text: 'Failed to delete user.',
+//                 icon: 'error'
+//               });
+//             }
+//           })
+//           .catch(error => {
+//             console.error('Error deleting user:', error);
+//             Swal.fire({
+//               title: 'Error!',
+//               text: 'Failed to delete user. Please try again later.',
+//               icon: 'error'
+//             });
+//           });
+//       }
+//     });
+//   };
+
+//   return (
+
+
+
+//     <div className="overflow-x-auto">
+//       <table className="table">
+
+//         <thead>
+//           <tr>
+//             <th>Sl No</th>
+//             <th>Name</th>
+//             <th>Date & Time</th>
+//             <th>Location</th>
+//             <th>Profession</th>
+//             <th>Delete</th>
+//           </tr>
+//         </thead>
+//         <tbody className='bg-white'>
+//           {
+//             orders.map((order, index) =>
+
+//               <tr key={order?._id} className="bg-white">
+//                 <th>{index + 1}</th>
+//                 <td>{order?.name
+//                 }</td>
+//                 <td>{order?.time}</td>
+//                 <td>{order?.price}</td>
+//                 <td>
+//                   <Link to={`/dashboard/updated/${order?._id}`}>
+
+//                     <button
+
+//                       className='text-2xl text-orange-300'>
+//                       <FaPenToSquare />
+//                     </button>
+//                   </Link>
+//                 </td>
+//                 <td>
+//                   <button
+//                     onClick={() => handleDeleteUser(order)}
+//                     className='text-2xl text-red-500'>
+//                     <MdDeleteSweep />
+//                   </button>
+//                 </td>
+//               </tr>
+//             )
+//           }
+//         </tbody>
+//       </table>
+//     </div>
+
+//   );
+// };
+
+// export default ViewPur;
+
+
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useState } from "react";
+import { FaPen } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
+
+const ViewPur = ({ card }) => {
+  const [orders, setOrders] = useState([card]);
+
+  const handleDeleteUser = (cardToDelete) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://the-captain-boil-server.vercel.app/myorder/${cardToDelete._id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your user has been deleted.",
+                icon: "success",
+              }).then(() => {
+                // Update UI after successful deletion
+                const updatedOrders = orders.filter(
+                  (order) => order._id !== cardToDelete._id
+                );
+                setOrders(updatedOrders);
+              });
+            } else {
+              Swal.fire({
+                title: "Error!",
+                text: "Failed to delete user.",
+                icon: "error",
+              });
+            }
+          })
+          .catch((error) => {
+            console.error("Error deleting user:", error);
+            Swal.fire({
+              title: "Error!",
+              text: "Failed to delete user. Please try again later.",
+              icon: "error",
+            });
+          });
+      }
+    });
+  };
+
   return (
-    <div className="flex flex-col mt-6">
-      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-          <div className="overflow-hidden border border-gray-200  md:rounded-lg">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th
-                    scope="col"
-                    className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500"
-                  >
-                    <div className="flex items-center gap-x-3">
-                      <span>Food Name</span>
-                    </div>
-                  </th>
-
-                  <th
-                    scope="col"
-                    className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
-                  >
-                    <span>Time</span>
-                  </th>
-
-                  <th
-                    scope="col"
-                    className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
-                  >
-                    <button className="flex items-center gap-x-2">
-                      <span>Price</span>
-                    </button>
-                  </th>
-
-                  <th
-                    scope="col"
-                    className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
-                  >
-                    Status
-                  </th>
-
-                  <th className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200 ">
-                <tr>
-                  <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                    {name}
-                  </td>
-
-                  <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                    {time}
-                  </td>
-
-                  <td className="px-4 py-4 text-sm text-gray-500  whitespace-nowrap">
-                    {price}
-                  </td>
-
-                  <td className="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
-                    <div className="inline-flex items-center px-3 py-1 rounded-full gap-x-2 bg-yellow-100/60 text-yellow-500">
-                      <span className="h-1.5 w-1.5 rounded-full bg-yellow-500"></span>
-                      <h2 className="text-sm font-normal ">Pending</h2>
-                    </div>
-                  </td>
-                  <td className="px-4 py-4 text-sm whitespace-nowrap">
-                    <div className="flex items-center gap-x-6">
-                      <button className="text-gray-500 transition-colors duration-200   hover:text-red-500 focus:outline-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-5 h-5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m4.5 12.75 6 6 9-13.5"
-                          />
-                        </svg>
-                      </button>
-
-                      <button className="text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="w-5 h-5"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18.364 18.364A9 9 0 0 0 5.636 5.636m12.728 12.728A9 9 0 0 1 5.636 5.636m12.728 12.728L5.636 5.636"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+    <div className="overflow-x-auto">
+      <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <thead className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+          <tr>
+            <th className="py-3 px-6 text-left">Sl No</th>
+            <th className="py-3 px-6 text-left">Name</th>
+            <th className="py-3 px-6 text-left">Date & Time</th>
+            <th className="py-3 px-6 text-left">Location</th>
+            <th className="py-3 px-6 text-left">Profession</th>
+            <th className="py-3 px-6 text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody className="text-gray-600 text-sm font-light">
+          {orders.map((order, index) => (
+            <tr key={order._id} className="border-b border-gray-200 hover:bg-gray-100">
+              <td className="py-3 px-6 text-left whitespace-nowrap">{index + 1}</td>
+              <td className="py-3 px-6 text-left">{order.name}</td>
+              <td className="py-3 px-6 text-left">{order.time}</td>
+              <td className="py-3 px-6 text-left">{order.price}</td>
+              <td className="py-3 px-6 text-left">
+                <Link to={`/dashboard/updated/${order._id}`}>
+                  <button className="text-orange-300 hover:text-orange-500">
+                    <FaPen className="text-xl" />
+                  </button>
+                </Link>
+              </td>
+              <td className="py-3 px-6 text-center">
+                <button
+                  onClick={() => handleDeleteUser(order)}
+                  className="text-red-500 hover:text-red-700"
+                >
+                  <MdDelete className="text-xl" />
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

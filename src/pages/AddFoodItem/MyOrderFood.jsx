@@ -18,9 +18,9 @@ const MyOrderFood = () => {
   return (
     <section className="container px-4 mx-auto pt-12 mb-5 mt-5">
       <div className="flex items-center gap-x-3">
-        <h2 className="text-lg font-medium text-gray-800 ">My Order</h2>
+        <h2 className="text-lg font-medium text-white ">My Order</h2>
 
-        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
+        <span className="px-3 py-1 text-xs text-white font-bold bg-red-500 rounded-full ">
           Order {items.length}
         </span>
       </div>
