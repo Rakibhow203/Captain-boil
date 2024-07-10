@@ -5,7 +5,7 @@ const Adds = () => {
     <div className='rounded-lg'>
 
       <div className="relative">
-        <video autoPlay className="w-full h-auto rounded-xl">
+        <video className="w-full h-auto rounded-xl">
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -19,3 +19,4 @@ const Adds = () => {
 };
 
 export default Adds;
+// autoPlay

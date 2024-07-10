@@ -19,7 +19,7 @@ const Gallery = () => {
   // Fetch images from backend
   const fetchImages = async () => {
     try {
-      const response = await fetch('https://the-captain-boil-server.vercel.app/images');
+      const response = await fetch('http://localhost:5000/images');
       if (!response.ok) {
         throw new Error('Failed to fetch images');
       }
@@ -51,7 +51,7 @@ const Gallery = () => {
     e.preventDefault();
     if (newImage.feedback && newImage.imageUrl) {
       try {
-        const response = await fetch('https://the-captain-boil-server.vercel.app/addProduct', {
+        const response = await fetch('http://localhost:5000/addProduct', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

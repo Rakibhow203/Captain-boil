@@ -28,7 +28,7 @@ const AddFoodItem = () => {
       food_image,
     };
     console.log(addAll);
-    fetch('https://assignment-11-server-site-xi.vercel.app/tops', {
+    fetch('http://localhost:5000/addProduct', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

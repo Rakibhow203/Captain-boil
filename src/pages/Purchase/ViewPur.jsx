@@ -20,7 +20,7 @@
 //       confirmButtonText: 'Yes, delete it!'
 //     }).then(result => {
 //       if (result.isConfirmed) {
-//         axios.delete(`https://the-captain-boil-server.vercel.app/myorder/${cardToDelete._id}`)
+//         axios.delete(`http://localhost:5000/myorder/${cardToDelete._id}`)
 //           .then(res => {
 //             if (res.data.deletedCount) {
 //               Swal.fire({
@@ -131,7 +131,7 @@ const ViewPur = ({ card }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://the-captain-boil-server.vercel.app/myorder/${cardToDelete._id}`)
+          .delete(`http://localhost:5000/myorder/${cardToDelete._id}`)
           .then((res) => {
             if (res.data.deletedCount) {
               Swal.fire({

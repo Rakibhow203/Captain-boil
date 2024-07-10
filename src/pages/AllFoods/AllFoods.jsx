@@ -14,7 +14,7 @@
 //     const fetchFoods = async () => {
 //       try {
 //         console.log('Searching for:', searchQuery);
-//         const response = await fetch(`https://the-captain-boil-server.vercel.app/foods?q=${encodeURIComponent(searchQuery)}`);
+//         const response = await fetch(`http://localhost:5000/foods?q=${encodeURIComponent(searchQuery)}`);
 //         const data = await response.json();
 //         console.log('Fetched foods:', data);
 //         setCards(data); // Update state with the fetched foods
@@ -62,7 +62,7 @@ const AllFoods = () => {
     const fetchFoods = async () => {
       try {
         console.log('Searching for:', searchQuery);
-        const response = await fetch(`https://the-captain-boil-server.vercel.app/foods?q=${encodeURIComponent(searchQuery)}`);
+        const response = await fetch(`http://localhost:5000/foods?q=${encodeURIComponent(searchQuery)}`);
         const data = await response.json();
         console.log('Fetched foods:', data);
         setCards(data);

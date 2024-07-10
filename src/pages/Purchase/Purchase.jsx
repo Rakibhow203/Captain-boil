@@ -33,7 +33,7 @@
 
 //     const orderData = { name, price, time, email };
 
-//     fetch('https://the-captain-boil-server.vercel.app/order', {
+//     fetch('http://localhost:5000/order', {
 //       method: 'POST',
 //       headers: {
 //         'content-type': 'application/json',
@@ -110,7 +110,7 @@ const PurchasePage = () => {
 
     const orderData = { name, price, time, quantity, email };
 
-    fetch('https://the-captain-boil-server.vercel.app/order', {
+    fetch('http://localhost:5000/order', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
