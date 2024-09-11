@@ -19,7 +19,7 @@ const AddFoodModal = ({ show, onHide, onAdd }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/addProduct', {
+      const response = await fetch('https://the-captain-boil-server.vercel.app/addProduct', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

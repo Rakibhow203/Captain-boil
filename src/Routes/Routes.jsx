@@ -54,7 +54,7 @@ const Routes = createBrowserRouter([
       {
         path: '/gallery',
         element: <Gallery></Gallery>,
-        loader: () => fetch('http://localhost:5000/foods'),
+        loader: () => fetch('https://the-captain-boil-server.vercel.app/foods'),
       },
       {
 
@@ -71,17 +71,17 @@ const Routes = createBrowserRouter([
 
         path: '/singleDetails/:id',
         element: <PrivateRoute> <SinglePageDetails></SinglePageDetails></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://the-captain-boil-server.vercel.app/foods')
 
       },
       {
 
         path: '/Top/:id',
         element: <PrivateRoute><TopFoodDetails></TopFoodDetails></PrivateRoute>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://the-captain-boil-server.vercel.app/foods')
 
       },
-
+      
       {
         path: '/myFood',
         element: <MyAddFood></MyAddFood>
@@ -94,13 +94,13 @@ const Routes = createBrowserRouter([
       {
         path: '/update/:id',
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:5000/foods/${params.id}`)
+        loader: ({ params }) => fetch(`https://the-captain-boil-server.vercel.app/foods/${params.id}`)
 
       },
       {
         path: '/purchase/:id',
         element: <Purchase></Purchase>,
-        loader: () => fetch('http://localhost:5000/foods')
+        loader: () => fetch('https://the-captain-boil-server.vercel.app/foods')
 
 
       },

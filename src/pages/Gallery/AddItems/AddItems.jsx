@@ -22,7 +22,7 @@
 //     const info = { image, name, email, description };
 //     console.log(info);
 
-//     fetch('http://localhost:5000/addProduct', {
+//     fetch('https://the-captain-boil-server.vercel.app/addProduct', {
 
 //       method: "POST", // or 'PUT'
 //       headers: {

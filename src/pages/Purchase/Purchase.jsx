@@ -33,7 +33,7 @@
 
 //     const orderData = { name, price, time, email };
 
-//     fetch('http://localhost:5000/order', {
+//     fetch('https://the-captain-boil-server.vercel.app/order', {
 //       method: 'POST',
 //       headers: {
 //         'content-type': 'application/json',
@@ -77,6 +77,9 @@
 // };
 
 // export default PurchasePage;
+
+
+
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -110,7 +113,7 @@ const PurchasePage = () => {
 
     const orderData = { name, price, time, quantity, email };
 
-    fetch('http://localhost:5000/order', {
+    fetch('https://the-captain-boil-server.vercel.app/order', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
